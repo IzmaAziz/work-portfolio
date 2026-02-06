@@ -1,36 +1,66 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github, Linkedin, Mail, Award, Briefcase, BookOpen, Code2, Database, GitBranch } from "lucide-react";
+import { ExternalLink, Github, Linkedin, Mail, Award, Briefcase, BookOpen, Code2, Database, GitBranch, Rocket, Users, Bot, BadgeCheck, Video, Play } from "lucide-react";
 import { motion } from "framer-motion";
 
 const metricsData = [
-  { label: "Years of Experience", value: 2, max: 5 },
-  { label: "Team Members Led", value: 5, max: 10 },
-  { label: "AI Solutions Delivered", value: 4, max: 10 },
-  { label: "Certifications", value: 5, max: 10 },
+  { 
+    value: "2+", 
+    subtitle: "Years Experience", 
+    icon: Rocket,
+    iconBg: "bg-blue-100",
+    iconColor: "text-blue-500"
+  },
+  { 
+    value: "5+", 
+    subtitle: "Team Members Led", 
+    icon: Users,
+    iconBg: "bg-emerald-100",
+    iconColor: "text-emerald-500"
+  },
+  { 
+    value: "4+", 
+    subtitle: "AI Solutions Delivered", 
+    icon: Bot,
+    iconBg: "bg-violet-100",
+    iconColor: "text-violet-500"
+  },
+  { 
+    value: "3rd", 
+    subtitle: "of 152 graduates", 
+    tag: "Bronze Medalist", 
+    icon: Award,
+    iconBg: "bg-orange-100",
+    iconColor: "text-orange-500",
+    tagColor: "text-orange-500"
+  },
 ];
 
 const projectsData = [
   {
-    title: "ReAct Agent Workflow",
+    title: "Event-Driven Agentic AI System",
     description: "Event-driven AI agent implementing reasoning and action patterns with modular architecture using LlamaIndex workflows.",
     tech: ["LlamaIndex", "Python", "LLMs", "Agentic AI"],
-    link: "https://github.com/IzmaAziz/ReAct-Agent-Workflow-Llama-Index",
+    github: "https://github.com/IzmaAziz/ReAct-Agent-Workflow-Llama-Index",
+    webinar: "https://datasciencedojo.com/tutorial/agentic-ai-llamaindex-workflows/",
+    webinarTitle: "Master Agentic AI: Deep Dive into Event-Driven LlamaIndex Workflows",
   },
   {
-    title: "RAG Chatbot",
+    title: "Intelligent Document Assistant",
     description: "Retrieval-augmented conversational AI grounding LLM responses in uploaded documents using hybrid retrieval and semantic reranking.",
     tech: ["RAG", "Python", "FastAPI", "ChromaDB", "LLMs"],
-    link: "https://github.com/IzmaAziz/Building-Simple-and-Efficient-Chatbots-Demo",
+    github: "https://github.com/IzmaAziz/Building-Simple-and-Efficient-Chatbots-Demo",
+    webinar: "https://datasciencedojo.com/tutorial/building-simple-and-efficient-chatbots-step-by-step/",
+    webinarTitle: "Building Simple and Efficient Chatbots Step-by-Step",
   },
 ];
 
 const awardsData = [
-  { title: "DOT Awards (4x)", issuer: "Data Science Dojo", year: "2023-2025", description: "Quarterly recognition for Delivery Ownership and Trust" },
-  { title: "Giant Leap Award", issuer: "Data Science Dojo", year: "2024", description: "Exceptional innovation in AI product development" },
-  { title: "Bronze Medal", issuer: "NED University", year: "2023", description: "Ranked 3rd among 152 graduates in Computer Systems Engineering" },
-  { title: "Runner-Up", issuer: "FAST DevDay", year: "2022", description: "Genome prediction hackathon competition" },
+  { title: "🏆 DOT Awards (4x)", issuer: "Data Science Dojo", year: "2023-2025", description: "Quarterly recognition for Delivery Ownership and Trust" },
+  { title: "🚀 Giant Leap Award", issuer: "Data Science Dojo", year: "2024", description: "Exceptional innovation in AI product development" },
+  { title: "🥉 Bronze Medal", issuer: "NED University", year: "2023", description: "Ranked 3rd among 152 graduates in Computer Systems Engineering" },
+  { title: "🥈 Runner-Up", issuer: "FAST DevDay", year: "2022", description: "Genome prediction hackathon competition" },
 ];
 
 const certifications = [
@@ -78,44 +108,24 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 to-white py-12 md:py-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 to-white py-12 md:py-20">
         <div className="container mx-auto px-6 md:px-12 lg:px-16">
           <motion.div
-            className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16"
+            className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
-            {/* Profile Image - Shows first on mobile */}
-            <motion.div 
-              variants={itemVariants}
-              className="flex-shrink-0 order-first lg:order-last"
-            >
-              <div className="relative">
-                <div className="w-40 h-40 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-2xl overflow-hidden shadow-xl lg:shadow-2xl ring-4 ring-white">
-                  <img 
-                    src="/profile.webp" 
-                    alt="Izma Aziz" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                {/* Decorative element - hidden on mobile */}
-                <div className="hidden md:block absolute -z-10 -bottom-4 -right-4 w-64 lg:w-80 h-64 lg:h-80 rounded-2xl bg-primary/10"></div>
-              </div>
-            </motion.div>
-
             {/* Text Content */}
-            <motion.div variants={itemVariants} className="flex-1 space-y-4 md:space-y-6 text-center lg:text-left">
-              <div>
-                <h1 className="text-3xl md:text-5xl lg:text-6xl [font-family:Poppins] font-bold text-foreground leading-tight">
-                  Izma Aziz
-                </h1>
-                <p className="text-base md:text-xl text-muted-foreground mt-2">Senior Software Engineer — Generative AI & LLMs</p>
-              </div>
+            <motion.div variants={itemVariants} className="flex-1 space-y-4 md:space-y-5 text-center lg:text-left">
+              <p className="text-primary font-semibold text-sm md:text-base">Senior Software Engineer — Generative AI & LLMs</p>
+              <h1 className="text-3xl md:text-5xl lg:text-6xl [font-family:Poppins] font-bold text-foreground leading-tight">
+                Izma Aziz
+              </h1>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                 I lead AI feature development at Data Science Dojo, building complete AI systems from the ground up. My work spans infrastructure, deployment pipelines, and microservices architecture, with a focus on advanced AI implementations including agent-to-agent protocols, model context protocols, and autonomous agent systems.
               </p>
-              <div className="flex gap-4 flex-wrap justify-center lg:justify-start">
+              <div className="flex gap-4 flex-wrap justify-center lg:justify-start pt-2">
                 <Button asChild className="bg-primary hover:bg-primary/90">
                   <a href="https://linkedin.com/in/izma-aziz-31a922224" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="mr-2 h-4 w-4" /> LinkedIn
@@ -128,28 +138,33 @@ export default function Home() {
                 </Button>
               </div>
             </motion.div>
-          </motion.div>
-        </div>
-      </section>
 
-      {/* Key Metrics */}
-      <section className="py-16 bg-slate-50">
-        <div className="container mx-auto px-6 md:px-12 lg:px-16">
-          <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {metricsData.map((metric, idx) => (
-              <motion.div key={idx} variants={itemVariants}>
-                <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-                  <div className="text-3xl font-bold text-primary mb-2">{metric.value}+</div>
-                  <p className="text-sm text-muted-foreground">{metric.label}</p>
-                </Card>
-              </motion.div>
-            ))}
+            {/* Metrics Cards */}
+            <motion.div 
+              variants={itemVariants}
+              className="grid grid-cols-2 gap-4 w-full lg:w-auto"
+            >
+              {metricsData.map((metric, idx) => {
+                const Icon = metric.icon;
+                return (
+                  <div 
+                    key={idx} 
+                    className="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all border border-slate-100 min-w-[160px]"
+                  >
+                    <div className={`w-11 h-11 mb-4 rounded-xl ${metric.iconBg} flex items-center justify-center`}>
+                      <Icon className={`h-5 w-5 ${metric.iconColor}`} />
+                    </div>
+                    <div className="text-2xl md:text-3xl font-bold text-foreground">
+                      {metric.value}
+                    </div>
+                    <p className="text-sm text-muted-foreground mt-1">{metric.subtitle}</p>
+                    {metric.tag && (
+                      <p className={`text-sm font-semibold mt-2 ${metric.tagColor}`}>{metric.tag}</p>
+                    )}
+                  </div>
+                );
+              })}
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -383,8 +398,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="mb-12"
           >
-            <h2 className="text-4xl [font-family:Poppins] font-bold text-foreground mb-2">Featured Projects</h2>
-            <p className="text-muted-foreground">Agentic AI and Generative AI applications demonstrating core concepts and flows in AI development.</p>
+            <h2 className="text-4xl [font-family:Poppins] font-bold text-foreground mb-2 flex items-center gap-3">
+              <Code2 className="text-primary" /> Projects & Webinars
+            </h2>
+            <p className="text-muted-foreground">Agentic AI and Generative AI applications with accompanying educational webinars.</p>
           </motion.div>
 
           <motion.div
@@ -396,23 +413,51 @@ export default function Home() {
           >
             {projectsData.map((project, idx) => (
               <motion.div key={idx} variants={itemVariants}>
-                <Card className="overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col">
-                  <div className="h-48 overflow-hidden bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
-                    <Code2 className="h-24 w-24 text-white opacity-80" />
-                  </div>
+                <Card className="overflow-hidden hover:shadow-xl transition-all h-full flex flex-col border border-slate-200 shadow-sm bg-white">
                   <div className="p-6 flex-1 flex flex-col">
-                    <h3 className="text-xl [font-family:Poppins] font-bold text-foreground mb-2">{project.title}</h3>
-                    <p className="text-muted-foreground mb-4 flex-1">{project.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    {/* Title with icon */}
+                    <div className="flex items-start gap-3 mb-4">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <Code2 className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg [font-family:Poppins] font-bold text-foreground">{project.title}</h3>
+                        <p className="text-sm text-muted-foreground mt-1">{project.description}</p>
+                      </div>
+                    </div>
+                    
+                    {/* Tech badges */}
+                    <div className="flex flex-wrap gap-2 mb-5">
                       {project.tech.map((tech, i) => (
-                        <Badge key={i} variant="secondary">{tech}</Badge>
+                        <Badge key={i} variant="secondary" className="text-xs">{tech}</Badge>
                       ))}
                     </div>
-                    <Button asChild variant="outline" className="w-full">
-                      <a href={project.link} target="_blank" rel="noopener noreferrer">
-                        View on GitHub <ExternalLink className="ml-2 h-4 w-4" />
-                      </a>
-                    </Button>
+
+                    {/* Webinar info */}
+                    {project.webinar && (
+                      <div className="bg-violet-50 border border-violet-200 rounded-lg p-4 mb-5">
+                        <div className="flex items-center gap-2 text-violet-700 font-semibold text-sm mb-1">
+                          <Video className="h-4 w-4" /> Featured Webinar
+                        </div>
+                        <p className="text-sm text-violet-900">{project.webinarTitle}</p>
+                      </div>
+                    )}
+                    
+                    {/* Action buttons */}
+                    <div className="flex gap-3 mt-auto">
+                      <Button asChild variant="default" className="flex-1">
+                        <a href={project.github} target="_blank" rel="noopener noreferrer">
+                          <Github className="mr-2 h-4 w-4" /> GitHub
+                        </a>
+                      </Button>
+                      {project.webinar && (
+                        <Button asChild variant="outline" className="flex-1">
+                          <a href={project.webinar} target="_blank" rel="noopener noreferrer">
+                            <Play className="mr-2 h-4 w-4" /> Webinar
+                          </a>
+                        </Button>
+                      )}
+                    </div>
                   </div>
                 </Card>
               </motion.div>
@@ -469,7 +514,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="mb-12"
           >
-            <h2 className="text-4xl [font-family:Poppins] font-bold text-foreground mb-2">Technical Skills</h2>
+            <h2 className="text-4xl [font-family:Poppins] font-bold text-foreground mb-2 flex items-center gap-3">
+              <Code2 className="text-primary" /> Technical Skills
+            </h2>
           </motion.div>
 
           <motion.div
@@ -483,7 +530,7 @@ export default function Home() {
               <Card className="p-6">
                 <h3 className="text-lg [font-family:Poppins] font-bold text-foreground mb-4">AI & Machine Learning</h3>
                 <div className="space-y-2">
-                  {["PyTorch", "TensorFlow", "Hugging Face", "LangChain", "LlamaIndex","OpenCV"].map((skill, i) => (
+                  {["Python", "PyTorch", "TensorFlow", "Hugging Face", "LangChain", "LlamaIndex", "OpenCV"].map((skill, i) => (
                     <p key={i} className="text-muted-foreground flex items-center gap-2">
                       <span className="w-2 h-2 bg-accent rounded-full"></span>
                       {skill}
@@ -511,7 +558,7 @@ export default function Home() {
               <Card className="p-6">
                 <h3 className="text-lg [font-family:Poppins] font-bold text-foreground mb-4">Infrastructure & Data</h3>
                 <div className="space-y-2">
-                  {["PostgreSQL", "ChromaDB", "FAISS", "Azure", "Database Design", "Vector Stores"].map((skill, i) => (
+                  {["SQL", "PostgreSQL", "ChromaDB", "FAISS", "Azure", "Database Design", "Vector Stores"].map((skill, i) => (
                     <p key={i} className="text-muted-foreground flex items-center gap-2">
                       <span className="w-2 h-2 bg-accent rounded-full"></span>
                       {skill}
