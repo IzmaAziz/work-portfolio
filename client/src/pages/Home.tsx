@@ -34,11 +34,11 @@ const awardsData = [
 ];
 
 const certifications = [
-  { name: "Azure Solutions Architect Expert", issuer: "Microsoft" },
-  { name: "Azure AI Engineer Associate", issuer: "Microsoft" },
-  { name: "Azure Administrator Associate", issuer: "Microsoft" },
-  { name: "Azure Data Engineer Associate", issuer: "Microsoft" },
-  { name: "Azure Fundamentals", issuer: "Microsoft" },
+  { name: "Azure Solutions Architect Expert", issuer: "Microsoft", link: "https://learn.microsoft.com/en-us/users/izmaaziz-5765/credentials/e47e1b6c31f7e9a3" },
+  { name: "Azure AI Engineer Associate", issuer: "Microsoft", link: "https://learn.microsoft.com/en-us/users/izmaaziz-5765/credentials/fbb53d93f59f6f5f" },
+  { name: "Azure Administrator Associate", issuer: "Microsoft", link: "https://learn.microsoft.com/en-us/users/izmaaziz-5765/credentials/d01aa37012f65658" },
+  { name: "Azure Data Engineer Associate", issuer: "Microsoft", link: "https://learn.microsoft.com/en-us/users/izmaaziz-5765/credentials/63ba4cecc60ccc89" },
+  { name: "Azure Fundamentals", issuer: "Microsoft", link: "https://learn.microsoft.com/en-us/users/izmaaziz-5765/credentials/certification/azure-fundamentals" },
 ];
 
 const containerVariants = {
@@ -78,25 +78,44 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 to-white py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 to-white py-12 md:py-20">
+        <div className="container mx-auto px-6 md:px-12 lg:px-16">
           <motion.div
-            className="max-w-3xl"
+            className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
-            <motion.div variants={itemVariants} className="space-y-6">
+            {/* Profile Image - Shows first on mobile */}
+            <motion.div 
+              variants={itemVariants}
+              className="flex-shrink-0 order-first lg:order-last"
+            >
+              <div className="relative">
+                <div className="w-40 h-40 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-2xl overflow-hidden shadow-xl lg:shadow-2xl ring-4 ring-white">
+                  <img 
+                    src="/profile.webp" 
+                    alt="Izma Aziz" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                {/* Decorative element - hidden on mobile */}
+                <div className="hidden md:block absolute -z-10 -bottom-4 -right-4 w-64 lg:w-80 h-64 lg:h-80 rounded-2xl bg-primary/10"></div>
+              </div>
+            </motion.div>
+
+            {/* Text Content */}
+            <motion.div variants={itemVariants} className="flex-1 space-y-4 md:space-y-6 text-center lg:text-left">
               <div>
-                <h1 className="text-5xl lg:text-6xl [font-family:Poppins] font-bold text-foreground leading-tight">
+                <h1 className="text-3xl md:text-5xl lg:text-6xl [font-family:Poppins] font-bold text-foreground leading-tight">
                   Izma Aziz
                 </h1>
-                <p className="text-xl text-muted-foreground mt-2">Senior Software Engineer — Generative AI & LLMs</p>
+                <p className="text-base md:text-xl text-muted-foreground mt-2">Senior Software Engineer — Generative AI & LLMs</p>
               </div>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                 I lead AI feature development at Data Science Dojo, building complete AI systems from the ground up. My work spans infrastructure, deployment pipelines, and microservices architecture, with a focus on advanced AI implementations including agent-to-agent protocols, model context protocols, and autonomous agent systems.
               </p>
-              <div className="flex gap-4 flex-wrap">
+              <div className="flex gap-4 flex-wrap justify-center lg:justify-start">
                 <Button asChild className="bg-primary hover:bg-primary/90">
                   <a href="https://linkedin.com/in/izma-aziz-31a922224" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="mr-2 h-4 w-4" /> LinkedIn
@@ -115,7 +134,7 @@ export default function Home() {
 
       {/* Key Metrics */}
       <section className="py-16 bg-slate-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-12 lg:px-16">
           <motion.div
             className="grid grid-cols-2 md:grid-cols-4 gap-6"
             variants={containerVariants}
@@ -137,7 +156,7 @@ export default function Home() {
 
       {/* Experience Section */}
       <section id="experience" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-12 lg:px-16">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -161,109 +180,102 @@ export default function Home() {
               <h3 className="text-2xl [font-family:Poppins] font-bold text-foreground">Senior Software Engineer — Generative AI</h3>
               <p className="text-accent font-semibold">Data Science Dojo • Sep 2023 – Present</p>
               
-              <div className="mt-6 space-y-6">
+              <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Leadership & Product */}
-                <div>
-                  <h4 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
-                    <Briefcase className="h-5 w-5 text-primary" /> Leadership & Core AI Feature Development
+                <div className="bg-slate-50 rounded-lg p-5">
+                  <h4 className="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
+                    <Briefcase className="h-4 w-4 text-primary" /> Leadership
                   </h4>
-                  <ul className="space-y-2 text-muted-foreground">
-                    <li className="flex gap-3">
-                      <span className="text-primary font-bold">•</span>
-                      <span>Lead core AI team driving all major AI feature developments for enterprise products, involved in every strategic decision from conception to deployment</span>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li className="flex gap-2">
+                      <span className="text-primary">•</span>
+                      <span>Lead core AI team of 5 engineers</span>
                     </li>
-                    <li className="flex gap-3">
-                      <span className="text-primary font-bold">•</span>
-                      <span>Designed and deployed multi-agent AI systems using A2A (Agent-to-Agent) protocols and MCPs (Model Context Protocol), enabling enterprise clients to automate complex decision-making workflows</span>
+                    <li className="flex gap-2">
+                      <span className="text-primary">•</span>
+                      <span>Drive all AI feature development decisions</span>
                     </li>
-                    <li className="flex gap-3">
-                      <span className="text-primary font-bold">•</span>
-                      <span>Architected deep agent systems and agentic RAG implementations with hybrid search capabilities, combining semantic and keyword-based retrieval for optimal relevance</span>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="text-primary font-bold">•</span>
-                      <span>Led a team of 5 engineers on AI product development, establishing code review practices, mentoring junior developers, and fostering technical excellence</span>
+                    <li className="flex gap-2">
+                      <span className="text-primary">•</span>
+                      <span>Establish code review & mentorship practices</span>
                     </li>
                   </ul>
                 </div>
 
-                {/* End-to-End AI System Integration */}
-                <div>
-                  <h4 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
-                    <Code2 className="h-5 w-5 text-primary" /> End-to-End AI System Integration
+                {/* AI Systems */}
+                <div className="bg-slate-50 rounded-lg p-5">
+                  <h4 className="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
+                    <Code2 className="h-4 w-4 text-primary" /> AI Systems
                   </h4>
-                  <ul className="space-y-2 text-muted-foreground">
-                    <li className="flex gap-3">
-                      <span className="text-primary font-bold">•</span>
-                      <span>Designed and implemented production RAG pipelines with hybrid retrieval (semantic + keyword search) and semantic reranking, deployed across multiple enterprise applications serving thousands of users</span>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li className="flex gap-2">
+                      <span className="text-primary">•</span>
+                      <span>Multi-agent systems with A2A & MCP protocols</span>
                     </li>
-                    <li className="flex gap-3">
-                      <span className="text-primary font-bold">•</span>
-                      <span>Built microservices-based AI architecture using FastAPI, enabling modular, scalable AI components that integrate seamlessly with enterprise systems</span>
+                    <li className="flex gap-2">
+                      <span className="text-primary">•</span>
+                      <span>Agentic RAG with hybrid search & reranking</span>
                     </li>
-                    <li className="flex gap-3">
-                      <span className="text-primary font-bold">•</span>
-                      <span>Engineered database schema modeling and REST API development using Django for data persistence and integration layers supporting complex AI workflows</span>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="text-primary font-bold">•</span>
-                      <span>Implemented comprehensive CI/CD pipelines automating testing, validation, and deployment of AI models and microservices to production environments</span>
+                    <li className="flex gap-2">
+                      <span className="text-primary">•</span>
+                      <span>Production RAG pipelines serving thousands</span>
                     </li>
                   </ul>
                 </div>
 
-                {/* Infrastructure & DevOps */}
-                <div>
-                  <h4 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
-                    <GitBranch className="h-5 w-5 text-primary" /> Infrastructure & DevOps
+                {/* Architecture */}
+                <div className="bg-slate-50 rounded-lg p-5">
+                  <h4 className="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
+                    <Database className="h-4 w-4 text-primary" /> Architecture
                   </h4>
-                  <ul className="space-y-2 text-muted-foreground">
-                    <li className="flex gap-3">
-                      <span className="text-primary font-bold">•</span>
-                      <span>Managed infrastructure-as-code and containerization strategies using Docker, ensuring reproducible and scalable AI system deployments</span>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li className="flex gap-2">
+                      <span className="text-primary">•</span>
+                      <span>Microservices with FastAPI & Django</span>
                     </li>
-                    <li className="flex gap-3">
-                      <span className="text-primary font-bold">•</span>
-                      <span>Orchestrated cloud infrastructure on Microsoft Azure, optimizing costs and performance for AI workloads including model serving and batch processing</span>
+                    <li className="flex gap-2">
+                      <span className="text-primary">•</span>
+                      <span>Database schema design & REST APIs</span>
                     </li>
-                    <li className="flex gap-3">
-                      <span className="text-primary font-bold">•</span>
-                      <span>Established monitoring, logging, and observability practices for production AI systems, ensuring reliability and rapid incident response</span>
+                    <li className="flex gap-2">
+                      <span className="text-primary">•</span>
+                      <span>CI/CD pipelines for AI model deployment</span>
                     </li>
                   </ul>
                 </div>
 
-                {/* Thought Leadership */}
-                <div>
-                  <h4 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
-                    <Award className="h-5 w-5 text-primary" /> Thought Leadership & Knowledge Sharing
+                {/* Infrastructure */}
+                <div className="bg-slate-50 rounded-lg p-5">
+                  <h4 className="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
+                    <GitBranch className="h-4 w-4 text-primary" /> Infrastructure
                   </h4>
-                  <ul className="space-y-2 text-muted-foreground">
-                    <li className="flex gap-3">
-                      <span className="text-primary font-bold">•</span>
-                      <span>Authored 3 technical articles on LLM applications, agentic AI patterns, and production best practices, contributing to company thought leadership</span>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li className="flex gap-2">
+                      <span className="text-primary">•</span>
+                      <span>Docker containerization & IaC</span>
                     </li>
-                    <li className="flex gap-3">
-                      <span className="text-primary font-bold">•</span>
-                      <span>Delivered 2 webinars on multi-agent systems and agentic workflows, educating enterprise clients and the broader AI community</span>
+                    <li className="flex gap-2">
+                      <span className="text-primary">•</span>
+                      <span>Azure cloud infrastructure optimization</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-primary">•</span>
+                      <span>Monitoring, logging & observability</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
-              <div className="mt-6 flex flex-wrap gap-2">
-                <Badge>A2A Protocols</Badge>
-                <Badge>MCPs</Badge>
-                <Badge>Deep Agents</Badge>
-                <Badge>Agentic RAG</Badge>
-                <Badge>Hybrid Search</Badge>
-                <Badge>FastAPI</Badge>
-                <Badge>Django</Badge>
-                <Badge>Docker</Badge>
-                <Badge>CI/CD</Badge>
-                <Badge>Azure</Badge>
-                <Badge>Database Design</Badge>
-                <Badge>REST APIs</Badge>
+              <div className="mt-5 pt-4 border-t border-slate-200">
+                <div className="flex flex-wrap gap-2">
+                  <Badge>A2A Protocols</Badge>
+                  <Badge>MCPs</Badge>
+                  <Badge>Agentic RAG</Badge>
+                  <Badge>FastAPI</Badge>
+                  <Badge>Django</Badge>
+                  <Badge>Docker</Badge>
+                  <Badge>Azure</Badge>
+                </div>
               </div>
             </motion.div>
 
@@ -286,7 +298,7 @@ export default function Home() {
 
       {/* Education Section */}
       <section id="education" className="py-20 bg-slate-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-12 lg:px-16">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -338,13 +350,22 @@ export default function Home() {
                 <h3 className="text-2xl [font-family:Poppins] font-bold text-foreground mb-4">Professional Certifications</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {certifications.map((cert, idx) => (
-                    <div key={idx} className="flex items-start gap-3">
+                    <a 
+                      key={idx} 
+                      href={cert.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-start gap-3 group hover:bg-slate-50 p-2 -m-2 rounded-lg transition-colors"
+                    >
                       <span className="text-accent mt-1">✓</span>
                       <div>
-                        <p className="font-semibold text-foreground">{cert.name}</p>
+                        <p className="font-semibold text-foreground group-hover:text-primary transition-colors flex items-center gap-1">
+                          {cert.name}
+                          <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </p>
                         <p className="text-sm text-muted-foreground">{cert.issuer}</p>
                       </div>
-                    </div>
+                    </a>
                   ))}
                 </div>
               </Card>
@@ -355,7 +376,7 @@ export default function Home() {
 
       {/* Projects Section */}
       <section id="projects" className="py-20 bg-slate-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-12 lg:px-16">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -402,7 +423,7 @@ export default function Home() {
 
       {/* Awards Section */}
       <section id="awards" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-12 lg:px-16">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -441,7 +462,7 @@ export default function Home() {
 
       {/* Skills Section */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-12 lg:px-16">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -547,7 +568,7 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-primary to-blue-600 text-white">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-6 md:px-12 lg:px-16 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -573,7 +594,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-8">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-6 md:px-12 lg:px-16 text-center">
           <p className="text-slate-400">© 2026 Izma Aziz. All rights reserved.</p>
           <p className="text-slate-500 text-sm mt-2">Senior Software Engineer • Generative AI & LLMs • Data Science Dojo</p>
         </div>
